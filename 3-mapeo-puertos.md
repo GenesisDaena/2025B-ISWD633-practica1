@@ -53,13 +53,7 @@ docker run -d --name jenkins-container -p 8080:8080 -p 50000:50000 jenkins/jenki
 
 ### ¿Cómo obtener la contraseña solicitada?
 Para obtener la contraseña solicitada es necesario ingresar al contenedor.
-```
-docker logs jenkins-container
-```
-o
-```
-docker exec jenkins-container cat /var/jenkins_home/secrets/initialAdminPassword
-```
+
 
 ![Imagen](jenkins.PNG)
 
