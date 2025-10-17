@@ -19,7 +19,6 @@ Crear un contenedor a partir de la imagen nginx version alpine con el mapeo de p
 <img width="614" height="259" alt="image" src="https://github.com/user-attachments/assets/99a508f5-0c8b-4c38-b7ad-a54c2cf50a60" />
 
 
-
 ### Para mapear más de un puerto
 
 ```
@@ -28,6 +27,8 @@ docker run -d --name <nombre contenedor> -p <puerto host 01>:<puerto contenedor 
 
 Crear un contenedor a partir de la imagen rabbitmq version management-alpine, para este mapeo de puertos usar en el host los mismos puertos del contenedor.
 # COMPLETAR
+C:\Users\daena>docker run -d --name rabbit-mq -p 5672:5672 -p 15672:15672 rabbitmq:management-alpine
+
 
 ### Usando una forma más semántica cuando se especifican puertos
 
@@ -46,11 +47,19 @@ No puedes mapear puertos a un contenedor existente directamente después de su c
 
 ### Crear contenedor de Jenkins puertos contenedor: 8080 (interface web) y 50000 (comunicación entre nodos) imagen: jenkins/jenkins:alpine3.18-jdk11
 # COMPLETAR
-
+docker run -d --name jenkins-container -p 8080:8080 -p 50000:50000 jenkins/jenkins:alpine3.18-jdk11
 # COLOCAR UNA CAPTURA DE PANTALLA  DEL ACCESO http://localhost:8080
+<img width="1194" height="722" alt="image" src="https://github.com/user-attachments/assets/6e1ae583-4f4e-47e7-b739-a41655c27142" />
 
 ### ¿Cómo obtener la contraseña solicitada?
 Para obtener la contraseña solicitada es necesario ingresar al contenedor.
+```
+docker logs jenkins-container
+```
+o
+```
+docker exec jenkins-container cat /var/jenkins_home/secrets/initialAdminPassword
+```
 
 ![Imagen](jenkins.PNG)
 
